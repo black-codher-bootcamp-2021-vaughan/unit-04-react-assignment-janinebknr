@@ -1,4 +1,4 @@
-import './App.css';
+import "./styles/App.css";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-         View Example Bookcase App
+          View Example Bookcase App
         </a>
       </header>
     </div>
