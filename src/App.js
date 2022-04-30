@@ -1,23 +1,39 @@
+import react from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/Header";
+import ProductList from "./components/ProductList";
+import Basket from "./components/Basket";
+import About from "./pages/About";
 import "./styles/App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://imusicstore.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Example Bookcase App
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Header />
+              <ProductList />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/basket"
+          render={() => (
+            <>
+              <Header />
+              <Basket />
+            </>
+          )}
+        />
+        <Route path="/about" component={() => <About />} />
+      </Router>
+    </>
   );
-}
+};
 
 export default App;

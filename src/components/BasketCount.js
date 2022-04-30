@@ -1,7 +1,7 @@
 import react from "react";
 
 const BasketCount = () => {
-  return <p>Basket Count</p>;
+  return <p># items</p>;
 };
 
 export default BasketCount;

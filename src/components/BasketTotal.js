@@ -3,7 +3,7 @@ import react from "react";
 const BasketTotal = () => {
   return (
     <div>
-      <p>Basket Total: £##.##</p>
+      <p>Total: £##.##</p>
     </div>
   );
 };
