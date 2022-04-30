@@ -20,6 +20,7 @@ const App = () => {
             </>
           )}
         />
+        <Route path="/about" component={() => <About />} />
         <Route
           exact
           path="/basket"
@@ -30,7 +31,6 @@ const App = () => {
             </>
           )}
         />
-        <Route path="/about" component={() => <About />} />
       </Router>
     </>
   );

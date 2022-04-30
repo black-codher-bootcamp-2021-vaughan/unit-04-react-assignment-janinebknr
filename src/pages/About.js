@@ -19,7 +19,7 @@ const About = (props) => {
         |{" "}
         <Link to="/basket" id="basketlink">
           {" "}
-          Basket (###)
+          Basket (# items))
         </Link>
       </div>
       <div className="page">
