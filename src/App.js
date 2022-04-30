@@ -5,6 +5,7 @@ import ProductList from "./components/ProductList";
 import Basket from "./components/Basket";
 import About from "./pages/About";
 import "./styles/App.css";
+import data from "./models/data.json";
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
             <>
               <Header />
               <ProductList />
+              {data.map((item) => (
+                <p>{item.trackName}</p>
+              ))}{" "}
             </>
           )}
         />
