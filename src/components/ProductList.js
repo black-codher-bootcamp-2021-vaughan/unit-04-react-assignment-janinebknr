@@ -6,12 +6,16 @@ const ProductList = ({ items, ...props }) => {
   return (
     <div className="list">
       <div>
-        {props.stored === "library" && <h2>Suggested Reading</h2>}
+        {props.stored === "mediastore" ? (
+          <h2>Suggested For You</h2>
+        ) : (
+          <h2>Basket</h2>
+        )}
         {items.length === 0 ? (
           <div className="empty">No items found...</div>
         ) : (
           items
-            .filter((item) => props.stored === "bookcase" || !item.read)
+            .filter((item) => props.stored === "basket" || !item.read)
             .map((item) => (
               <Product key={item.trackId} item={item} {...props} />
             ))

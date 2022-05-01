@@ -9,6 +9,31 @@ import data from "./models/data.json";
 
 const App = () => {
   const [items, setItems] = useState(data);
+  const [basket, setBasket] = useState([]);
+
+  const addToBasket = (id) => {
+    setBasket(basket.concat(items.filter((item) => item.trackId === id)));
+    setItems([
+      ...items.map((item) => {
+        if (item.trackId === id) {
+          item.read = true;
+        }
+        return item;
+      }),
+    ]);
+  };
+
+  const removeFromBasket = (id) => {
+    setBasket(basket.filter((item) => item.trackId !== id));
+    setItems([
+      ...items.map((item) => {
+        if (item.trackId === id) {
+          item.read = false;
+        }
+        return item;
+      }),
+    ]);
+  };
 
   return (
     <>
@@ -19,7 +44,12 @@ const App = () => {
           render={() => (
             <>
               <Header />
-              <ProductList items={items} />
+              <ProductList
+                items={items}
+                stored="mediastore"
+                addToBasket={addToBasket}
+                removeFromBasket={removeFromBasket}
+              />
             </>
           )}
         />
@@ -30,7 +60,13 @@ const App = () => {
           render={() => (
             <>
               <Header />
-              <Basket />
+              <ProductList
+                items={basket}
+                stored="basket"
+                addToBasket={addToBasket}
+                removeFromBasket={removeFromBasket}
+              />
+              {/* <Basket /> */}
             </>
           )}
         />

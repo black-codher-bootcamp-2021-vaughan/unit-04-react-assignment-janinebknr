@@ -29,6 +29,23 @@ const Product = ({ item, ...props }) => {
           {longDescription ? longDescription.substring(0, 300) + "..." : ""}
         </p>
       </div>
+      <div>
+        {props.stored === "mediastore" ? (
+          <button
+            className="add-button"
+            onClick={() => props.addToBasket(trackId)}
+          >
+            Add to basket
+          </button>
+        ) : (
+          <button
+            className="remove-button"
+            onClick={() => props.removeFromBasket(trackId)}
+          >
+            Remove
+          </button>
+        )}
+      </div>
     </div>
   );
 };
