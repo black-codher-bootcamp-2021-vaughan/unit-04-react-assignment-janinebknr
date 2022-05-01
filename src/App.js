@@ -1,4 +1,4 @@
-import react from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
@@ -8,6 +8,8 @@ import "./styles/App.css";
 import data from "./models/data.json";
 
 const App = () => {
+  const [products, setProducts] = useState(data);
+
   return (
     <>
       <Router>
@@ -17,10 +19,7 @@ const App = () => {
           render={() => (
             <>
               <Header />
-              <ProductList />
-              {data.map((item) => (
-                <p>{item.trackName}</p>
-              ))}{" "}
+              <ProductList products={products} />
             </>
           )}
         />
