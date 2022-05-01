@@ -1,7 +1,7 @@
 import react from "react";
 import PropTypes from "prop-types";
 
-const Product = ({ product, ...props }) => {
+const Product = ({ item, ...props }) => {
   //Nested Destructuring
   const {
     kind,
@@ -10,10 +10,10 @@ const Product = ({ product, ...props }) => {
     artworkUrl100,
     trackPrice,
     longDescription,
-  } = product;
+  } = item;
 
   return (
-    <div className={"product " + kind}>
+    <div className={"item " + kind}>
       <img
         src={artworkUrl100}
         alt={trackName.length > 0 ? trackName : `Product id=${trackId}`}
@@ -37,5 +37,5 @@ export default Product;
 
 //Prop Types
 Product.propTypes = {
-  product: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 };

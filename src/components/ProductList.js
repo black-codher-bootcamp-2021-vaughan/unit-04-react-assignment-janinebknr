@@ -2,18 +2,18 @@ import react from "react";
 import Product from "./Product";
 import PropTypes from "prop-types";
 
-const ProductList = ({ products, ...props }) => {
+const ProductList = ({ items, ...props }) => {
   return (
     <div className="list">
       <div>
         {props.stored === "library" && <h2>Suggested Reading</h2>}
-        {products.length === 0 ? (
-          <div className="empty">No items...</div>
+        {items.length === 0 ? (
+          <div className="empty">No items found...</div>
         ) : (
-          products
-            .filter((product) => props.stored === "bookcase" || !product.read)
-            .map((product) => (
-              <Product key={product.trackId} product={product} {...props} />
+          items
+            .filter((item) => props.stored === "bookcase" || !item.read)
+            .map((item) => (
+              <Product key={item.trackId} item={item} {...props} />
             ))
         )}
       </div>
@@ -22,7 +22,7 @@ const ProductList = ({ products, ...props }) => {
 };
 
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default ProductList;

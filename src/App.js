@@ -8,7 +8,7 @@ import "./styles/App.css";
 import data from "./models/data.json";
 
 const App = () => {
-  const [products, setProducts] = useState(data);
+  const [items, setItems] = useState(data);
 
   return (
     <>
@@ -19,7 +19,7 @@ const App = () => {
           render={() => (
             <>
               <Header />
-              <ProductList products={products} />
+              <ProductList items={items} />
             </>
           )}
         />
