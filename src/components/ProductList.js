@@ -4,18 +4,16 @@ import PropTypes from "prop-types";
 
 const ProductList = ({ items, ...props }) => {
   return (
-    <div className="list">
+    <div className="results">
       <div>
-        {props.stored === "mediastore" ? (
-          <h2>Suggested For You</h2>
-        ) : (
-          <h2>Basket</h2>
+        {props.stored === "mediastore" && (
+          <h2>{props.itemCount} Suggested For You</h2>
         )}
-        {items.length === 0 ? (
+        {props.itemCount === 0 ? (
           <div className="empty">No items found...</div>
         ) : (
           items
-            .filter((item) => props.stored === "basket" || !item.read)
+            .filter((item) => props.stored === "basket" || !item.added)
             .map((item) => (
               <Product key={item.trackId} item={item} {...props} />
             ))
