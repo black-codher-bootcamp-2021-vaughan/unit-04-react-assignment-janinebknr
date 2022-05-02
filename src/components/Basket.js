@@ -1,12 +1,25 @@
-import react from "react";
+import React from "react";
+import Product from "./Product";
 import BasketCount from "./BasketCount";
 import BasketTotal from "./BasketTotal";
 
-const Basket = () => {
+const Basket = ({ basket, basketCount, ...props }) => {
+  console.log(basketCount);
   return (
     <>
       <h2>Basket</h2>
-      <BasketCount />
+      <BasketCount basketCount={basketCount} />
+      <div className="basket">
+        {basketCount === 0 ? (
+          <div className="empty">No items in basket...</div>
+        ) : (
+          basket
+            .filter((item) => item.added)
+            .map((item) => (
+              <Product key={item.trackId} item={item} {...props} />
+            ))
+        )}
+      </div>
       <BasketTotal />
     </>
   );

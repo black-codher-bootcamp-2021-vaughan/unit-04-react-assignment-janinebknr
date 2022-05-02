@@ -12,6 +12,7 @@ const App = () => {
   const [items, setItems] = useState(data);
   const [basket, setBasket] = useState([]);
   const [term, setTerm] = useState("");
+  const count = basket.length;
 
   const addToBasket = (id) => {
     setBasket(basket.concat(items.filter((item) => item.trackId === id)));
@@ -39,7 +40,6 @@ const App = () => {
 
   async function searchItems(value) {
     const url = `https://itunes.apple.com/search?term=${value}&limit=30&explicit=no`;
-    // const url = `https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-type=books&projection=lite&maxResults=3&orderBy=newest`;
     const apiResults = await fetch(url).then((res) => res.json());
     if (!apiResults.error) {
       console.log(JSON.stringify(apiResults.results));
@@ -57,31 +57,38 @@ const App = () => {
           path="/"
           render={() => (
             <>
-              <Header />
+              <Header basketCount={count} />
               <Search searchItems={searchItems} term={term} setTerm={setTerm} />
               <ProductList
                 items={items}
                 stored="mediastore"
                 addToBasket={addToBasket}
-                removeFromBasket={removeFromBasket}
+                // removeFromBasket={removeFromBasket}
                 itemCount={itemCount}
               />
             </>
           )}
         />
-        <Route path="/about" component={() => <About />} />
+        <Route path="/about" component={() => <About basketCount={count} />} />
         <Route
           exact
           path="/basket"
           render={() => (
             <>
-              <Header />
-              <ProductList
+              <Header basketCount={count} />
+              <Basket
+                basket={basket}
+                stored="basket"
+                removeFromBasket={removeFromBasket}
+                basketCount={count}
+                // basketTotal={total}
+              />
+              {/* <ProductList
                 items={basket}
                 stored="basket"
                 addToBasket={addToBasket}
                 removeFromBasket={removeFromBasket}
-              />
+              /> */}
               {/* <Basket /> */}
             </>
           )}

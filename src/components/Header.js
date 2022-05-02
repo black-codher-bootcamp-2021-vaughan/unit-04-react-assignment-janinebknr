@@ -15,7 +15,7 @@ const Header = (props) => {
         </Link>{" "}
         |{" "}
         <Link to="/basket" id="basketlink">
-          Basket (# items)
+          Basket ({props.basketCount})
         </Link>
       </div>
     </div>
