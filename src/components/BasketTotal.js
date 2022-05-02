@@ -1,9 +1,9 @@
-import react from "react";
+import React from "react";
 
-const BasketTotal = () => {
+const BasketTotal = (props) => {
   return (
-    <div>
-      <p>Total: £##.##</p>
+    <div className="basket-total">
+      <p>Total: £{props.basketTotal}</p>
     </div>
   );
 };

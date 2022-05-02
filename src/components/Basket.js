@@ -3,7 +3,7 @@ import Product from "./Product";
 import BasketCount from "./BasketCount";
 import BasketTotal from "./BasketTotal";
 
-const Basket = ({ basket, basketCount, ...props }) => {
+const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
   console.log(basketCount);
   return (
     <>
@@ -20,7 +20,7 @@ const Basket = ({ basket, basketCount, ...props }) => {
             ))
         )}
       </div>
-      <BasketTotal />
+      <BasketTotal basketTotal={basketTotal} />
     </>
   );
 };

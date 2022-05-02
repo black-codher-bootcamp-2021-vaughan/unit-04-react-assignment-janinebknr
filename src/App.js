@@ -12,7 +12,9 @@ const App = () => {
   const [items, setItems] = useState(data);
   const [basket, setBasket] = useState([]);
   const [term, setTerm] = useState("");
+  const itemCount = items.length;
   const count = basket.length;
+  const [total, setTotal] = useState(0);
 
   const addToBasket = (id) => {
     setBasket(basket.concat(items.filter((item) => item.trackId === id)));
@@ -20,6 +22,7 @@ const App = () => {
       ...items.map((item) => {
         if (item.trackId === id) {
           item.added = true;
+          setTotal(total + item.trackPrice);
         }
         return item;
       }),
@@ -32,6 +35,7 @@ const App = () => {
       ...items.map((item) => {
         if (item.trackId === id) {
           item.added = false;
+          setTotal(total - item.trackPrice);
         }
         return item;
       }),
@@ -46,8 +50,6 @@ const App = () => {
       // setItems(JSON.stringify(apiResults.results));
     }
   }
-
-  const itemCount = items.length;
 
   return (
     <>
@@ -81,7 +83,7 @@ const App = () => {
                 stored="basket"
                 removeFromBasket={removeFromBasket}
                 basketCount={count}
-                // basketTotal={total}
+                basketTotal={total}
               />
               {/* <ProductList
                 items={basket}
