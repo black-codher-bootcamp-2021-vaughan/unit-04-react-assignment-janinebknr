@@ -67,9 +67,7 @@ const App = () => {
               <Search search={search} term={term} setTerm={setTerm} />
               <ProductList
                 items={items}
-                stored="mediastore"
                 addToBasket={addToBasket}
-                // removeFromBasket={removeFromBasket}
                 itemCount={itemCount}
               />
             </>
@@ -84,7 +82,6 @@ const App = () => {
               <Header basketCount={count} />
               <Basket
                 basket={basket}
-                stored="basket"
                 removeFromBasket={removeFromBasket}
                 basketCount={count}
                 basketTotal={total}

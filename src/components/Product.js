@@ -14,11 +14,13 @@ const Product = ({ item, ...props }) => {
 
   return (
     <div className={"item " + kind}>
-      <img
-        src={artworkUrl100}
-        alt={trackName.length > 0 ? trackName : `Product id=${trackId}`}
-      />
-      <div>
+      <div className="item-image">
+        <img
+          src={artworkUrl100}
+          alt={trackName.length > 0 ? trackName : `Product id=${trackId}`}
+        />
+      </div>
+      <div className="item-details">
         <h2 title={trackName}>
           {trackName.length > 50
             ? trackName.substring(0, 50) + "..."

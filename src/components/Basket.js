@@ -5,7 +5,6 @@ import BasketTotal from "./BasketTotal";
 import PropTypes from "prop-types";
 
 const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
-  console.log(basketCount);
   return (
     <>
       <h2>Basket</h2>
