@@ -46,7 +46,7 @@ const App = () => {
     document.title = `Basket: ${count} item${count === 1 ? "" : "s"}`;
   });
 
-  async function searchItems(value) {
+  async function search(value) {
     const url = `https://itunes.apple.com/search?term=${value}&limit=30&explicit=no`;
     const apiResults = await fetch(url).then((res) => res.json());
     if (!apiResults.error) {
@@ -64,7 +64,7 @@ const App = () => {
           render={() => (
             <>
               <Header basketCount={count} />
-              <Search searchItems={searchItems} term={term} setTerm={setTerm} />
+              <Search search={search} term={term} setTerm={setTerm} />
               <ProductList
                 items={items}
                 stored="mediastore"

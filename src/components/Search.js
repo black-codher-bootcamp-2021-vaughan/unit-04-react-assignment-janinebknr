@@ -3,7 +3,7 @@ import React from "react";
 const Search = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.searchItems(props.term);
+    props.search(props.term);
   };
 
   return (
