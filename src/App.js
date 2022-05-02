@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -41,6 +41,10 @@ const App = () => {
       }),
     ]);
   };
+
+  useEffect(() => {
+    document.title = `Basket: ${count} item${count === 1 ? "" : "s"}`;
+  });
 
   async function searchItems(value) {
     const url = `https://itunes.apple.com/search?term=${value}&limit=30&explicit=no`;
@@ -85,13 +89,6 @@ const App = () => {
                 basketCount={count}
                 basketTotal={total}
               />
-              {/* <ProductList
-                items={basket}
-                stored="basket"
-                addToBasket={addToBasket}
-                removeFromBasket={removeFromBasket}
-              /> */}
-              {/* <Basket /> */}
             </>
           )}
         />
