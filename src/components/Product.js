@@ -29,8 +29,8 @@ const Product = ({ item, ...props }) => {
           {longDescription ? longDescription.substring(0, 300) + "..." : ""}
         </p>
       </div>
-      <div>
-        {props.stored === "mediastore" ? (
+      <div className="item-button">
+        {!item.added ? (
           <button
             className="add-button"
             onClick={() => props.addToBasket(trackId)}

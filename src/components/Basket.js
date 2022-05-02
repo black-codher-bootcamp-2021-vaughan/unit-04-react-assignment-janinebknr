@@ -2,6 +2,7 @@ import React from "react";
 import Product from "./Product";
 import BasketCount from "./BasketCount";
 import BasketTotal from "./BasketTotal";
+import PropTypes from "prop-types";
 
 const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
   console.log(basketCount);
@@ -23,6 +24,10 @@ const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
       <BasketTotal basketTotal={basketTotal} />
     </>
   );
+};
+
+Basket.propTypes = {
+  basket: PropTypes.array.isRequired,
 };
 
 export default Basket;
