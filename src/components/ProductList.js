@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const ProductList = ({ items, itemCount, ...props }) => {
   return (
     <>
-      <h2>Suggested For You</h2>
+      <h2 className="page-title">Suggested For You</h2>
       <div className="results">
         {itemCount === 0 ? (
           <div className="empty">Sorry, no items in basket...</div>

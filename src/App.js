@@ -65,7 +65,7 @@ const App = () => {
           exact
           path="/"
           render={() => (
-            <>
+            <div className="wrap">
               <Header basketCount={count} />
               <Search search={search} term={term} setTerm={setTerm} />
               <ProductList
@@ -73,15 +73,22 @@ const App = () => {
                 addToBasket={addToBasket}
                 itemCount={itemCount}
               />
-            </>
+            </div>
           )}
         />
-        <Route path="/about" component={() => <About basketCount={count} />} />
+        <Route
+          path="/about"
+          component={() => (
+            <div className="wrap">
+              <About basketCount={count} />
+            </div>
+          )}
+        />
         <Route
           exact
           path="/basket"
           render={() => (
-            <>
+            <div className="wrap">
               <Header basketCount={count} />
               <Basket
                 basket={basket}
@@ -89,7 +96,7 @@ const App = () => {
                 basketCount={count}
                 basketTotal={total}
               />
-            </>
+            </div>
           )}
         />
       </Router>

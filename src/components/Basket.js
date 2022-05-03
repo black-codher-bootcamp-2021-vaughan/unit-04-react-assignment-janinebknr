@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
   return (
     <>
-      <h2>Basket</h2>
+      <h2 className="page-title">Basket</h2>
       <BasketCount basketCount={basketCount} />
       <div className="basket">
         {basketCount === 0 ? (
