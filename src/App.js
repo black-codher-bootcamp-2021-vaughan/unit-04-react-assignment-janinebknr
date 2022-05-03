@@ -47,11 +47,14 @@ const App = () => {
   });
 
   async function search(value) {
-    const url = `https://itunes.apple.com/search?term=${value}&limit=30&explicit=no`;
+    const url = `https://itunes.apple.com/search?term=${value}&limit=20&explicit=no`;
     const apiResults = await fetch(url).then((res) => res.json());
     if (!apiResults.error) {
-      console.log(JSON.stringify(apiResults.results));
-      // setItems(JSON.stringify(apiResults.results));
+      const filteredResults = apiResults.results.filter(
+        (a) => a.wrapperType === "track"
+      );
+      console.log(filteredResults);
+      setItems(filteredResults);
     }
   }
 
