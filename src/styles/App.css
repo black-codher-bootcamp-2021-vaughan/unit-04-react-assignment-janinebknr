@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Sora:wght@400;700&display=swap");
+
+:root {
+  --main-colour: #001e2c;
+  --accent: #586c76;
+  --link: #00dc5f;
+  --body: #ffffff;
+}
+
+body {
+  background: var(--main-colour);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+  margin: 0;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", sans-serif;
+  color: #fff;
+  margin: 0 0 0.25em 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+h2.page-title {
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1.25em;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 0.5em 0;
+}
+
+p.description {
+  font-size: 0.8em;
+}
+
+p:empty.description {
+  display: none;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #fff;
+}
+
+button,
+input[type="submit"],
+select {
+  background: var(--link);
+  color: var(--main-colour);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-family: "Sora", sans-serif;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover,
+select:hover {
+  background-color: var(--body);
+}
+
+.wrap {
+  margin: 20px auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header,
+.search-bar {
+  padding-bottom: 2em;
+}
+
+#searchAPI {
+  display: flex;
+  align-items: stretch;
+}
+#searchAPI label {
+  flex: 1;
+}
+
+#searchAPI #terms {
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  width: 100%;
+}
+
+#searchAPI .search-button {
+  border-radius: 0 5px 5px 0;
+  font-size: 1em;
+}
+
+.item {
+  text-align: left;
+  display: flex;
+  border-bottom: 1px solid var(--accent);
+  padding: 0.5em 0;
+  margin-bottom: 0.5em;
+  gap: 1.5em;
+}
+
+.item-button {
+  margin-left: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.item-button:hover {
+  transform: translate3d(0px, -2px, 0px);
+}
+
+.item img {
+  min-width: 4em;
+}
+
+.item-details {
+  width: 70%;
+}
+
+.price {
+  font-family: "Lekton", sans-serif;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.basket-count,
+.basket-total {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 20px;
+  }
+  .wrap {
+    width: 50%;
+    margin: 50px auto;
+  }
+}
