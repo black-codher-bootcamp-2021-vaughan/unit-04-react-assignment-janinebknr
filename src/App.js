@@ -47,7 +47,7 @@ const App = () => {
   });
 
   async function search(value) {
-    const url = `https://itunes.apple.com/search?term=${value}&limit=20&explicit=no`;
+    const url = `https://itunes.apple.com/search?term=${value}&limit=50&explicit=no`;
     const apiResults = await fetch(url).then((res) => res.json());
     if (!apiResults.error) {
       const filteredResults = apiResults.results.filter(

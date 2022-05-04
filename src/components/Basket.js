@@ -11,7 +11,7 @@ const Basket = ({ basket, basketCount, basketTotal, ...props }) => {
       <BasketCount basketCount={basketCount} />
       <div className="basket">
         {basketCount === 0 ? (
-          <div className="empty">No items in basket...</div>
+          <div className="empty">Sorry, no items in basket...</div>
         ) : (
           basket
             .filter((item) => item.added)
