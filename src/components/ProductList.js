@@ -8,7 +8,7 @@ const ProductList = ({ items, itemCount, ...props }) => {
       <h2 className="page-title">Suggested For You</h2>
       <div className="results">
         {itemCount === 0 ? (
-          <div className="empty">Sorry, no items in basket...</div>
+          <div className="empty">No items found....</div>
         ) : (
           items
             .filter((item) => !item.added)
